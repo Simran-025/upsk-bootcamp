@@ -11,7 +11,5 @@ def create_link(db: Session, long_url: str):
     db.commit()
     db.refresh(db_link)
     return db_link
-
 def get_link_by_code(db: Session, code: str):
-    # Find the link in the database using the unique code
     return db.query(Link).filter(Link.code == code).first()

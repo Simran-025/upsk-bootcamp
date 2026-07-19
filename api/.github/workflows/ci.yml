@@ -7,11 +7,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    # THIS IS THE FIX:
-    defaults:
-      run:
-        working-directory: api
-    
     steps:
       - uses: actions/checkout@v4
       
@@ -23,10 +18,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r api/requirements.txt
       
       - name: Run linter
-        run: pip install ruff && ruff check .
+        run: pip install ruff && ruff check api/
       
       - name: Run tests
-        run: pip install pytest && pytest
+        run: pip install pytest && pytest api/

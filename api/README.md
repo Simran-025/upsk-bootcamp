@@ -1,45 +1,33 @@
-# URL Shortener API
+# Upsk Bootcamp - Team Collaboration API
 
-A robust URL shortening service built with FastAPI and SQLAlchemy.
+This project is a FastAPI-based application designed to manage teams and users, allowing for efficient team collaboration and management.
 
 ## Features
-- Shorten long URLs into unique short codes.
-- Redirect users to the original URL via short code.
-- Input validation to prevent malicious URL injection.
+- **CRUD Operations**: Create, Read, Update, and Delete for both Users and Teams.
+- **Association**: Easily link users to teams and manage team membership.
+- **SQLite Integration**: Uses SQLAlchemy for lightweight, efficient database management.
 
-## Tech Stack
-- **Framework:** FastAPI
-- **Database:** SQLite (via SQLAlchemy)
-- **Migrations:** Alembic
+## Installation
 
-## Setup Instructions
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Simran-025/upsk-bootcamp.git
-   cd api
-   ```
-
-2. **Create and activate virtual environment:**
+1. Clone the repository.
+2. Create a virtual environment:
    ```bash
    python -m venv .venv
    source .venv/Scripts/activate
    ```
-
-3. **Install dependencies:**
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Run migrations:**
-   ```bash
-   alembic upgrade head
-   ```
+## Running the Application
+Start the server using Uvicorn:
+```bash
+uvicorn app.main:app --reload
+```
 
-5. **Start the server:**
-   ```bash
-   uvicorn app.main:app --reload
-   ```
+Access the interactive API documentation at: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-6. **View API documentation:**
-   Visit http://127.0.0.1:8000/docs
+## API Endpoints
+- **Users**: `/users/` (POST, PUT, DELETE)
+- **Teams**: `/teams/` (POST, PUT, DELETE, GET users)
